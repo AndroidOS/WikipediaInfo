@@ -55,15 +55,39 @@
 		BE717AF523EE09B0006E21DE /* WikipediaInfo */ = {
 			isa = PBXGroup;
 			children = (
+				BE717B0B23EE0A65006E21DE /* Controller */,
+				BE717B0A23EE0A5A006E21DE /* View */,
+				BE717B0923EE0A4D006E21DE /* Model */,
 				BE717AF623EE09B0006E21DE /* AppDelegate.swift */,
-				BE717AF823EE09B0006E21DE /* ViewController.swift */,
 				BE717AFD23EE09B4006E21DE /* Assets.xcassets */,
-				BE717AFF23EE09B4006E21DE /* Main.storyboard */,
 				BE717B0223EE09B4006E21DE /* Info.plist */,
 				BE717B0323EE09B4006E21DE /* WikipediaInfo.entitlements */,
 				BE717AFA23EE09B0006E21DE /* WikipediaInfo.xcdatamodeld */,
 			);
 			path = WikipediaInfo;
+			sourceTree = "<group>";
+		};
+		BE717B0923EE0A4D006E21DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE717B0A23EE0A5A006E21DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE717AFF23EE09B4006E21DE /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE717B0B23EE0A65006E21DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE717AF823EE09B0006E21DE /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
