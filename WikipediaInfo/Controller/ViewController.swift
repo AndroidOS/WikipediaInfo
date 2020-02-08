@@ -9,11 +9,13 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+     var dataManager = DataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        dataManager.fetchBloggerData()
     }
 
     override var representedObject: Any? {
