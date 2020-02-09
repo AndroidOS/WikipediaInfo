@@ -8,13 +8,13 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
-    
+class ViewController: NSViewController, DataManagerDelegate {
+   
      var dataManager = DataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        dataManager.delegate = self
         dataManager.fetchBloggerData()
     }
 
@@ -22,6 +22,10 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    func didUpdateWiki(){
+        print("didUpdateWiki fired")
     }
 
 
