@@ -24,8 +24,10 @@ class ViewController: NSViewController, DataManagerDelegate {
         }
     }
     
-    func didUpdateWiki(){
-        print("didUpdateWiki fired")
+    func didUpdateWiki(parsedData: Wiki){
+        DispatchQueue.main.async {
+            print("didUpdateWiki fired \(parsedData.self.query.search)")
+        }
     }
 
 

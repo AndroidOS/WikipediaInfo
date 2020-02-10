@@ -9,7 +9,7 @@
 import Foundation
 
 protocol  DataManagerDelegate {
-    func didUpdateWiki()
+    func didUpdateWiki(parsedData: Wiki)
 }
 
 struct DataManager {
@@ -37,8 +37,10 @@ struct DataManager {
                 
                 if let safeData = data {
                     let str = String(decoding: safeData, as: UTF8.self)
-                    self.parseJSON(bloggerData: safeData)
-                    print(str)
+                    if let parsedData = self.parseJSON(bloggerData: safeData){
+                        self.delegate?.didUpdateWiki(parsedData: parsedData)
+                    }
+                    //print(str)
                 }
             }
             
@@ -48,9 +50,19 @@ struct DataManager {
         
     }
     
-    func parseJSON(bloggerData: Data){
-        print(bloggerData)
-        self.delegate?.didUpdateWiki()
+    func parseJSON(bloggerData: Data) -> Wiki? {
+        
+        let decoder = JSONDecoder()
+               do{
+                   let decodedData = try decoder.decode(Wiki.self, from:bloggerData)
+                       return decodedData
+                   
+               } catch {
+                   print(error)
+                   return nil
+               }
+        
+        
     }
         
     
