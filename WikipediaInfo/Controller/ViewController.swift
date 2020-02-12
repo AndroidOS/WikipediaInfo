@@ -23,8 +23,7 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
         tableView.delegate = self
         tableView.dataSource = self
         
-        results.append("Blue")
-        results.append("Yellow")
+        
     }
 
     override var representedObject: Any? {
@@ -36,6 +35,13 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
     func didUpdateWiki(parsedData: Wiki){
         DispatchQueue.main.async {
             print("didUpdateWiki fired \(parsedData.self.query.search)")
+            if let stringArray = parsedData.self.query.search {
+                for str in stringArray {
+                    self.results.append("\(str.title!)")
+                }
+                self.tableView.reloadData()
+            }
+
         }
     }
     
