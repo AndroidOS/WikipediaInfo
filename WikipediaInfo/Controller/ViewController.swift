@@ -8,14 +8,23 @@
 
 import Cocoa
 
-class ViewController: NSViewController, DataManagerDelegate {
+class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate, NSTableViewDataSource {
+    
+    var results = [String]()
    
-     var dataManager = DataManager()
+    @IBOutlet weak var tableView: NSTableView!
+    var dataManager = DataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.delegate = self
         dataManager.fetchBloggerData()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        results.append("Blue")
+        results.append("Yellow")
     }
 
     override var representedObject: Any? {
@@ -28,6 +37,19 @@ class ViewController: NSViewController, DataManagerDelegate {
         DispatchQueue.main.async {
             print("didUpdateWiki fired \(parsedData.self.query.search)")
         }
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+
+               let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "tableCell2")
+               guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
+            cellView.textField?.stringValue = "TEST"
+               return cellView
+        
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return results.count
     }
 
 
