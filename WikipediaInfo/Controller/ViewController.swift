@@ -41,12 +41,24 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 
-               let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "tableCell2")
-               guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
-            cellView.textField?.stringValue = "TEST"
+        if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "column1") {
+                print("view for tableColumn1")
+            
+            let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "Cell")
+            guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else {return nil }
+            
+            cellView.textField?.stringValue = results[row]
                return cellView
-        
+        } else {
+            let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "tableCell2")
+            guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
+                cellView.textField?.stringValue = "TEST2"
+                   return cellView
+
+        }
+
     }
+ 
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return results.count
