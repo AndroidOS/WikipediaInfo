@@ -56,7 +56,7 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
             cellView.textField?.stringValue = results[row]
                return cellView
         } else {
-            let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "tableCell2")
+            let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "Cell2")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
                 cellView.textField?.stringValue = "TEST2"
                    return cellView

@@ -730,7 +730,7 @@
                                                         <tableColumns>
                                                             <tableColumn identifier="column1" width="116" minWidth="40" maxWidth="1000" id="7SA-Ht-qZV">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                    <font key="font" metaFont="controlContent" size="11"/>
+                                                                    <font key="font" metaFont="label" size="11"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                 </tableHeaderCell>
@@ -763,7 +763,7 @@
                                                             </tableColumn>
                                                             <tableColumn identifier="column2" width="136" minWidth="40" maxWidth="1000" id="gA4-ZK-FsL">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                    <font key="font" metaFont="controlContent" size="11"/>
+                                                                    <font key="font" metaFont="label" size="11"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                 </tableHeaderCell>
@@ -774,7 +774,7 @@
                                                                 </textFieldCell>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
-                                                                    <tableCellView id="xKY-UC-hAL">
+                                                                    <tableCellView identifier="Cell2" id="xKY-UC-hAL">
                                                                         <rect key="frame" x="120" y="1" width="136" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
