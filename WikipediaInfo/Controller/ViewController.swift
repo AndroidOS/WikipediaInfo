@@ -64,7 +64,7 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
         } else {
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "Cell2")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
-                cellView.textField?.stringValue = wikis[row]
+            cellView.textField?.stringValue = stripHTML(str: wikis[row])
                    return cellView
 
         }
@@ -74,6 +74,12 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return results.count
+    }
+    
+    func stripHTML(str: String)-> String {
+        let a = str.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
+        
+        return a.replacingOccurrences(of: "@quot;", with: "", options: String.CompareOptions.regularExpression, range: nil)
     }
 
 
