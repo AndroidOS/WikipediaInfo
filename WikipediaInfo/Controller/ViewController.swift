@@ -79,7 +79,7 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
     func stripHTML(str: String)-> String {
         let a = str.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
         
-        return a.replacingOccurrences(of: "@quot;", with: "", options: String.CompareOptions.regularExpression, range: nil)
+        return a.replacingOccurrences(of: "@quot;", with: "\"", options: String.CompareOptions.regularExpression, range: nil)
     }
 
 
