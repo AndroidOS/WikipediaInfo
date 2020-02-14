@@ -11,6 +11,7 @@ import Cocoa
 class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate, NSTableViewDataSource {
     
     var results = [String]()
+    var wikis = [String]()
    
     @IBOutlet weak var tableView: NSTableView!
     var dataManager = DataManager()
@@ -37,8 +38,13 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
             print("didUpdateWiki fired \(parsedData.self.query.search)")
             if let stringArray = parsedData.self.query.search {
                 for str in stringArray {
+                    self.wikis.append("\(str.snippet!)")
                     self.results.append("\(str.title!)")
                 }
+               
+            
+                
+                
                 self.tableView.reloadData()
             }
 
@@ -58,7 +64,7 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
         } else {
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "Cell2")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
-                cellView.textField?.stringValue = "TEST2"
+                cellView.textField?.stringValue = wikis[row]
                    return cellView
 
         }
