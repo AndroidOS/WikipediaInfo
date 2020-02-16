@@ -14,16 +14,19 @@ protocol  DataManagerDelegate {
 
 struct DataManager {
     
-    let bloggerURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=meaning"
     var delegate: DataManagerDelegate?
     
-    func fetchBloggerData(){
+    func fetchBloggerData(str: String){
+        
+        let bloggerURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=\(str)"
        
         performRequest(urlString: bloggerURL)
     }
     
     
     func performRequest(urlString: String){
+        
+        
         
         if let url = URL(string: urlString){
             

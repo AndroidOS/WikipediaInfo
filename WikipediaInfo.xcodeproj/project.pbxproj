@@ -14,6 +14,7 @@
 		BE717B0123EE09B4006E21DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE717AFF23EE09B4006E21DE /* Main.storyboard */; };
 		BE77515023EE8D7F00DFBABD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77514F23EE8D7F00DFBABD /* DataManager.swift */; };
 		BE78486B23F0CC4E0040B2B8 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78486A23F0CC4E0040B2B8 /* Wiki.swift */; };
+		BE98266F23F8FB6A00CBBC7E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE98266E23F8FB6A00CBBC7E /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		BE717B0323EE09B4006E21DE /* WikipediaInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WikipediaInfo.entitlements; sourceTree = "<group>"; };
 		BE77514F23EE8D7F00DFBABD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BE78486A23F0CC4E0040B2B8 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
+		BE98266E23F8FB6A00CBBC7E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		BE717AF523EE09B0006E21DE /* WikipediaInfo */ = {
 			isa = PBXGroup;
 			children = (
+				BE98266D23F8FB5000CBBC7E /* Utils */,
 				BE717B0B23EE0A65006E21DE /* Controller */,
 				BE717B0A23EE0A5A006E21DE /* View */,
 				BE717B0923EE0A4D006E21DE /* Model */,
@@ -94,6 +97,14 @@
 				BE717AF823EE09B0006E21DE /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE98266D23F8FB5000CBBC7E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BE98266E23F8FB6A00CBBC7E /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 				BE77515023EE8D7F00DFBABD /* DataManager.swift in Sources */,
 				BE717AFC23EE09B0006E21DE /* WikipediaInfo.xcdatamodeld in Sources */,
 				BE717AF723EE09B0006E21DE /* AppDelegate.swift in Sources */,
+				BE98266F23F8FB6A00CBBC7E /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
