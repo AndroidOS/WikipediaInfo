@@ -35,7 +35,6 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
     
     func didUpdateWiki(parsedData: Wiki){
         DispatchQueue.main.async {
-            print("didUpdateWiki fired \(parsedData.self.query.search)")
             if let stringArray = parsedData.self.query.search {
                 for str in stringArray {
                     self.wikis.append("\(str.snippet!)")

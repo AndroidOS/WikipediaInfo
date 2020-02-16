@@ -39,11 +39,11 @@ struct DataManager {
                 }
                 
                 if let safeData = data {
-                    let str = String(decoding: safeData, as: UTF8.self)
+                    //let str = String(decoding: safeData, as: UTF8.self)
                     if let parsedData = self.parseJSON(bloggerData: safeData){
                         self.delegate?.didUpdateWiki(parsedData: parsedData)
                     }
-                    //print(str)
+                   
                 }
             }
             
