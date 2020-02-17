@@ -11,8 +11,8 @@ import Cocoa
 class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate, NSTableViewDataSource {
     
     var results = [Result]()
-    var results1 = [String]()
-    var wikis = [String]()
+//    var results1 = [String]()
+//    var wikis = [String]()
    
     @IBOutlet weak var tableView: NSTableView!
     var dataManager = DataManager()
@@ -25,7 +25,7 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+       
     }
 
     override var representedObject: Any? {
