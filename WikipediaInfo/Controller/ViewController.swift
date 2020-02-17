@@ -10,7 +10,8 @@ import Cocoa
 
 class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate, NSTableViewDataSource {
     
-    var results = [String]()
+    var results = [Result]()
+    var results1 = [String]()
     var wikis = [String]()
    
     @IBOutlet weak var tableView: NSTableView!
@@ -37,13 +38,8 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
         DispatchQueue.main.async {
             if let stringArray = parsedData.self.query.search {
                 for str in stringArray {
-                    self.wikis.append("\(str.snippet!)")
-                    self.results.append("\(str.title!)")
+                    self.results.append(Result(title: self.stripHTML(str: str.title!), snippet:  self.stripHTML(str: str.snippet!)))
                 }
-               
-            
-                
-                
                 self.tableView.reloadData()
             }
 
@@ -58,12 +54,13 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "Cell")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else {return nil }
             
-            cellView.textField?.stringValue = results[row]
+            cellView.textField?.stringValue = results[row].title
                return cellView
         } else {
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "Cell2")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
-            cellView.textField?.stringValue = stripHTML(str: wikis[row])
+            
+            cellView.textField?.stringValue = results[row].snippet
                    return cellView
 
         }
