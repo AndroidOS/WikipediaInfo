@@ -706,13 +706,13 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="WikipediaInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="538" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="538" height="328"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box title="Wikipedia" translatesAutoresizingMaskIntoConstraints="NO" id="0Hw-YZ-jlF">
-                                <rect key="frame" x="17" y="16" width="504" height="234"/>
+                                <rect key="frame" x="17" y="16" width="504" height="292"/>
                                 <view key="contentView" id="ml8-qA-S8D">
-                                    <rect key="frame" x="3" y="3" width="498" height="209"/>
+                                    <rect key="frame" x="3" y="3" width="498" height="267"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGD-bQ-fVH">
@@ -730,7 +730,7 @@
                                                         <tableColumns>
                                                             <tableColumn identifier="column1" width="116" minWidth="40" maxWidth="1000" id="7SA-Ht-qZV">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Title">
-                                                                    <font key="font" metaFont="message" size="11"/>
+                                                                    <font key="font" metaFont="controlContent" size="11"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                 </tableHeaderCell>
@@ -770,7 +770,7 @@
                                                             </tableColumn>
                                                             <tableColumn identifier="column2" width="304" minWidth="40" maxWidth="1000" id="gA4-ZK-FsL">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Snippets">
-                                                                    <font key="font" metaFont="message" size="11"/>
+                                                                    <font key="font" metaFont="controlContent" size="11"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                 </tableHeaderCell>
@@ -832,11 +832,34 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableHeaderView>
                                         </scrollView>
+                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k5K-Nr-K0O">
+                                            <rect key="frame" x="20" y="217" width="96" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="qYh-x5-Ers">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FWO-t2-FT3">
+                                            <rect key="frame" x="115" y="210" width="112" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Search Wiki" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fhp-18-JAf">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="searchButton:" target="XfG-lQ-9wD" id="ocg-OD-8vn"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="mGD-bQ-fVH" firstAttribute="top" secondItem="FWO-t2-FT3" secondAttribute="bottom" constant="8" id="2PF-ba-1cB"/>
                                         <constraint firstItem="mGD-bQ-fVH" firstAttribute="leading" secondItem="ml8-qA-S8D" secondAttribute="leading" constant="20" symbolic="YES" id="DAn-CJ-44l"/>
+                                        <constraint firstItem="k5K-Nr-K0O" firstAttribute="leading" secondItem="mGD-bQ-fVH" secondAttribute="leading" id="GLa-Iu-JWk"/>
                                         <constraint firstAttribute="trailing" secondItem="mGD-bQ-fVH" secondAttribute="trailing" constant="50" id="M1m-D6-Rn9"/>
+                                        <constraint firstItem="mGD-bQ-fVH" firstAttribute="top" secondItem="k5K-Nr-K0O" secondAttribute="bottom" constant="8" id="TLv-E6-uQ5"/>
                                         <constraint firstAttribute="bottom" secondItem="mGD-bQ-fVH" secondAttribute="bottom" constant="20" symbolic="YES" id="rBr-Lt-yUr"/>
+                                        <constraint firstItem="FWO-t2-FT3" firstAttribute="width" secondItem="k5K-Nr-K0O" secondAttribute="width" multiplier="1.04167" id="sNA-xO-tje"/>
+                                        <constraint firstItem="FWO-t2-FT3" firstAttribute="leading" secondItem="k5K-Nr-K0O" secondAttribute="trailing" constant="5" id="yph-1a-ifC"/>
                                     </constraints>
                                 </view>
                                 <font key="titleFont" size="20" name="HiraginoSansGB-W3"/>
@@ -851,11 +874,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Uuu-Iy-OVi" id="K97-s3-35N"/>
+                        <outlet property="textField" destination="k5K-Nr-K0O" id="7mv-R7-FZf"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="684"/>
         </scene>
     </scenes>
 </document>

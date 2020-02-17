@@ -11,9 +11,10 @@ import Cocoa
 class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate, NSTableViewDataSource {
     
     var results = [Result]()
-//    var results1 = [String]()
-//    var wikis = [String]()
+
    
+    @IBOutlet weak var textField: NSTextField!
+    
     @IBOutlet weak var tableView: NSTableView!
     var dataManager = DataManager()
 
@@ -79,5 +80,9 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
     }
 
 
+    @IBAction func searchButton(_ sender: NSButton) {
+        print("Search Button pressed")
+        
+    }
 }
 
