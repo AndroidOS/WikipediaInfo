@@ -36,6 +36,7 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
     }
     
     func didUpdateWiki(parsedData: Wiki){
+        results.removeAll()
         DispatchQueue.main.async {
             if let stringArray = parsedData.self.query.search {
                 for str in stringArray {
@@ -82,7 +83,8 @@ class ViewController: NSViewController, DataManagerDelegate, NSTableViewDelegate
 
     @IBAction func searchButton(_ sender: NSButton) {
         print("Search Button pressed")
-        
+        let txt = textField.stringValue
+        dataManager.fetchBloggerData(str: txt)
     }
 }
 
